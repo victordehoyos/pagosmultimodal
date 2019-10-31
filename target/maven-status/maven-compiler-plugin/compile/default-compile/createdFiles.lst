@@ -1,0 +1,16 @@
+io/swagger/model/Card.class
+io/swagger/model/CreateCardResponse.class
+io/swagger/configuration/JacksonConfiguration.class
+io/swagger/api/RecaudoApiController.class
+io/swagger/api/ApiOriginFilter.class
+io/swagger/Swagger2SpringBoot.class
+io/swagger/api/ApiResponseMessage.class
+io/swagger/model/ModelApiResponse.class
+io/swagger/Swagger2SpringBoot$ExitException.class
+io/swagger/configuration/HomeController.class
+io/swagger/api/NotFoundException.class
+io/swagger/api/RecaudoApi.class
+io/swagger/model/User.class
+io/swagger/configuration/SwaggerDocumentationConfig.class
+io/swagger/RFC3339DateFormat.class
+io/swagger/api/ApiException.class

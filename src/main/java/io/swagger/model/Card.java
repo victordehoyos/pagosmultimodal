@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * Card
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-10-27T15:51:48.963Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-10-31T04:38:26.623Z")
 
 public class Card   {
   @JsonProperty("number")
@@ -39,8 +39,7 @@ public class Card   {
    * Nro de la tarjeta
    * @return number
   **/
-  @ApiModelProperty(example = "7867564323565", required = true, value = "Nro de la tarjeta")
-  @NotNull
+  @ApiModelProperty(example = "7867564323565", value = "Nro de la tarjeta")
 
 
   public String getNumber() {
@@ -102,8 +101,7 @@ public class Card   {
    * Estado actual de la tarjeta
    * @return status
   **/
-  @ApiModelProperty(example = "0 = BLOQUEADO", required = true, value = "Estado actual de la tarjeta")
-  @NotNull
+  @ApiModelProperty(example = "0 = BLOQUEADO", value = "Estado actual de la tarjeta")
 
 
   public Integer getStatus() {

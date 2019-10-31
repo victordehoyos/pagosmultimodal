@@ -1,0 +1,15 @@
+/Users/victordehoyos/git/pagosmultimodal/src/main/java/io/swagger/api/RecaudoApiController.java
+/Users/victordehoyos/git/pagosmultimodal/src/main/java/io/swagger/configuration/JacksonConfiguration.java
+/Users/victordehoyos/git/pagosmultimodal/src/main/java/io/swagger/api/ApiResponseMessage.java
+/Users/victordehoyos/git/pagosmultimodal/src/main/java/io/swagger/api/NotFoundException.java
+/Users/victordehoyos/git/pagosmultimodal/src/main/java/io/swagger/api/ApiException.java
+/Users/victordehoyos/git/pagosmultimodal/src/main/java/io/swagger/RFC3339DateFormat.java
+/Users/victordehoyos/git/pagosmultimodal/src/main/java/io/swagger/api/RecaudoApi.java
+/Users/victordehoyos/git/pagosmultimodal/src/main/java/io/swagger/model/ModelApiResponse.java
+/Users/victordehoyos/git/pagosmultimodal/src/main/java/io/swagger/api/ApiOriginFilter.java
+/Users/victordehoyos/git/pagosmultimodal/src/main/java/io/swagger/configuration/HomeController.java
+/Users/victordehoyos/git/pagosmultimodal/src/main/java/io/swagger/configuration/SwaggerDocumentationConfig.java
+/Users/victordehoyos/git/pagosmultimodal/src/main/java/io/swagger/model/CreateCardResponse.java
+/Users/victordehoyos/git/pagosmultimodal/src/main/java/io/swagger/Swagger2SpringBoot.java
+/Users/victordehoyos/git/pagosmultimodal/src/main/java/io/swagger/model/Card.java
+/Users/victordehoyos/git/pagosmultimodal/src/main/java/io/swagger/model/User.java

@@ -5,17 +5,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.model.Card;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * ModelApiResponse
+ * CreateCardResponse
  */
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-10-31T04:38:26.623Z")
 
-public class ModelApiResponse   {
+public class CreateCardResponse   {
   @JsonProperty("code")
   private Integer code = null;
 
@@ -25,7 +26,10 @@ public class ModelApiResponse   {
   @JsonProperty("message")
   private String message = null;
 
-  public ModelApiResponse code(Integer code) {
+  @JsonProperty("card")
+  private Card card = null;
+
+  public CreateCardResponse code(Integer code) {
     this.code = code;
     return this;
   }
@@ -45,7 +49,7 @@ public class ModelApiResponse   {
     this.code = code;
   }
 
-  public ModelApiResponse type(String type) {
+  public CreateCardResponse type(String type) {
     this.type = type;
     return this;
   }
@@ -65,7 +69,7 @@ public class ModelApiResponse   {
     this.type = type;
   }
 
-  public ModelApiResponse message(String message) {
+  public CreateCardResponse message(String message) {
     this.message = message;
     return this;
   }
@@ -85,6 +89,27 @@ public class ModelApiResponse   {
     this.message = message;
   }
 
+  public CreateCardResponse card(Card card) {
+    this.card = card;
+    return this;
+  }
+
+  /**
+   * Get card
+   * @return card
+  **/
+  @ApiModelProperty(value = "")
+
+  @Valid
+
+  public Card getCard() {
+    return card;
+  }
+
+  public void setCard(Card card) {
+    this.card = card;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -94,25 +119,27 @@ public class ModelApiResponse   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ModelApiResponse _apiResponse = (ModelApiResponse) o;
-    return Objects.equals(this.code, _apiResponse.code) &&
-        Objects.equals(this.type, _apiResponse.type) &&
-        Objects.equals(this.message, _apiResponse.message);
+    CreateCardResponse createCardResponse = (CreateCardResponse) o;
+    return Objects.equals(this.code, createCardResponse.code) &&
+        Objects.equals(this.type, createCardResponse.type) &&
+        Objects.equals(this.message, createCardResponse.message) &&
+        Objects.equals(this.card, createCardResponse.card);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, type, message);
+    return Objects.hash(code, type, message, card);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ModelApiResponse {\n");
+    sb.append("class CreateCardResponse {\n");
     
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    card: ").append(toIndentedString(card)).append("\n");
     sb.append("}");
     return sb.toString();
   }

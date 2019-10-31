@@ -2,6 +2,7 @@ package io.swagger.api;
 
 import java.math.BigDecimal;
 import io.swagger.model.Card;
+import io.swagger.model.CreateCardResponse;
 import io.swagger.model.ModelApiResponse;
 import io.swagger.model.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,7 +24,7 @@ import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-10-27T15:51:48.963Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-10-31T04:38:26.623Z")
 
 @Controller
 public class RecaudoApiController implements RecaudoApi {
@@ -40,18 +41,18 @@ public class RecaudoApiController implements RecaudoApi {
         this.request = request;
     }
 
-    public ResponseEntity<ModelApiResponse> createCard(@ApiParam(value = "Created Card Object" ,required=true )  @Valid @RequestBody Card body) {
+    public ResponseEntity<CreateCardResponse> createCard() {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<ModelApiResponse>(objectMapper.readValue("{  \"code\" : 0,  \"type\" : \"type\",  \"message\" : \"message\"}", ModelApiResponse.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<CreateCardResponse>(objectMapper.readValue("{  \"code\" : 0,  \"type\" : \"type\",  \"message\" : \"message\",  \"card\" : {    \"owner\" : {      \"firstName\" : \"firstName\",      \"lastName\" : \"lastName\",      \"password\" : \"password\",      \"userStatus\" : 6,      \"phone\" : \"phone\",      \"email\" : \"email\"    },    \"number\" : \"7867564323565\",    \"balance\" : 20000.0,    \"status\" : \"0\"  }}", CreateCardResponse.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<ModelApiResponse>(HttpStatus.INTERNAL_SERVER_ERROR);
+                return new ResponseEntity<CreateCardResponse>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
 
-        return new ResponseEntity<ModelApiResponse>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<CreateCardResponse>(HttpStatus.NOT_IMPLEMENTED);
     }
 
     public ResponseEntity<ModelApiResponse> customizeCard(@ApiParam(value = "Card Number",required=true) @PathVariable("cardNumber") String cardNumber,@ApiParam(value = "Customize Card Object" ,required=true )  @Valid @RequestBody User body) {
@@ -72,7 +73,7 @@ public class RecaudoApiController implements RecaudoApi {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<Card>(objectMapper.readValue("{  \"owner\" : {    \"firstName\" : \"firstName\",    \"lastName\" : \"lastName\",    \"password\" : \"password\",    \"userStatus\" : 0,    \"phone\" : \"phone\",    \"email\" : \"email\"  },  \"number\" : \"7867564323565\",  \"balance\" : 20000.0,  \"status\" : \"0 = BLOQUEADO\"}", Card.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<Card>(objectMapper.readValue("{  \"owner\" : {    \"firstName\" : \"firstName\",    \"lastName\" : \"lastName\",    \"password\" : \"password\",    \"userStatus\" : 6,    \"phone\" : \"phone\",    \"email\" : \"email\"  },  \"number\" : \"7867564323565\",  \"balance\" : 20000.0,  \"status\" : \"0 = BLOQUEADO\"}", Card.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<Card>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -100,7 +101,7 @@ public class RecaudoApiController implements RecaudoApi {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<List<Card>>(objectMapper.readValue("[ {  \"owner\" : {    \"firstName\" : \"firstName\",    \"lastName\" : \"lastName\",    \"password\" : \"password\",    \"userStatus\" : 0,    \"phone\" : \"phone\",    \"email\" : \"email\"  },  \"number\" : \"7867564323565\",  \"balance\" : 20000.0,  \"status\" : \"0 = BLOQUEADO\"}, {  \"owner\" : {    \"firstName\" : \"firstName\",    \"lastName\" : \"lastName\",    \"password\" : \"password\",    \"userStatus\" : 0,    \"phone\" : \"phone\",    \"email\" : \"email\"  },  \"number\" : \"7867564323565\",  \"balance\" : 20000.0,  \"status\" : \"0 = BLOQUEADO\"} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<List<Card>>(objectMapper.readValue("[ {  \"owner\" : {    \"firstName\" : \"firstName\",    \"lastName\" : \"lastName\",    \"password\" : \"password\",    \"userStatus\" : 6,    \"phone\" : \"phone\",    \"email\" : \"email\"  },  \"number\" : \"7867564323565\",  \"balance\" : 20000.0,  \"status\" : \"0 = BLOQUEADO\"}, {  \"owner\" : {    \"firstName\" : \"firstName\",    \"lastName\" : \"lastName\",    \"password\" : \"password\",    \"userStatus\" : 6,    \"phone\" : \"phone\",    \"email\" : \"email\"  },  \"number\" : \"7867564323565\",  \"balance\" : 20000.0,  \"status\" : \"0 = BLOQUEADO\"} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<List<Card>>(HttpStatus.INTERNAL_SERVER_ERROR);
