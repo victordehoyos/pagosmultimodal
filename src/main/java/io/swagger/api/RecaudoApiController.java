@@ -153,8 +153,30 @@ public class RecaudoApiController implements RecaudoApi {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<ModelApiResponse>(objectMapper.readValue("{  \"code\" : 0,  \"type\" : \"type\",  \"message\" : \"message\"}", ModelApiResponse.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
+            	
+            	Card card = rFacade.getCardInfo(cardNumber);
+            	ModelApiResponse response = new ModelApiResponse();
+            	
+            	if (card != null) {
+            		if (card.getStatus() == 0) {
+            			response.setCode(-1);
+            			response.setMessage("La tarjeta se encuentra bloqueada, no se puede recargar");
+            			response.setType("Tarjeta Bloqueada");
+            			return new ResponseEntity<ModelApiResponse>(response, HttpStatus.LOCKED);
+            		} else {
+            			card.setBalance((card.getBalance().add(amount)));
+            			card = rFacade.updateCard(card);
+            			
+            			response.setCode(0);
+            			response.setMessage("Saldo actualizado correctamente");
+            			response.setType("Confirmación");
+            			
+            			return new ResponseEntity<ModelApiResponse>(response, HttpStatus.OK);
+            		}
+            	}
+            	
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            } catch (Exception e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<ModelApiResponse>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
@@ -167,8 +189,29 @@ public class RecaudoApiController implements RecaudoApi {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<ModelApiResponse>(objectMapper.readValue("{  \"code\" : 0,  \"type\" : \"type\",  \"message\" : \"message\"}", ModelApiResponse.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
+            	Card card = rFacade.getCardInfo(cardNumber);
+            	ModelApiResponse response = new ModelApiResponse();
+            	
+            	if (card != null) {
+            		if (card.getStatus() == 0) {
+            			response.setCode(-1);
+            			response.setMessage("La tarjeta se encuentra bloqueada, no se puede recargar");
+            			response.setType("Tarjeta Bloqueada");
+            			return new ResponseEntity<ModelApiResponse>(response, HttpStatus.LOCKED);
+            		} else {
+            			card.setBalance((card.getBalance().subtract(amount)));
+            			card = rFacade.updateCard(card);
+            			
+            			response.setCode(0);
+            			response.setMessage("Saldo actualizado correctamente");
+            			response.setType("Confirmación");
+            			
+            			return new ResponseEntity<ModelApiResponse>(response, HttpStatus.OK);
+            		}
+            	}
+            	
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            } catch (Exception e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<ModelApiResponse>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
