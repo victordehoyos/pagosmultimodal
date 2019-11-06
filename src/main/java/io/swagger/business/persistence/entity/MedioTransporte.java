@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "rec_medio_trasporte", catalog = "d23q9477s25drf", schema = "public")
-public class MedioTrasporte implements Serializable {
+public class MedioTransporte implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -37,10 +37,10 @@ public class MedioTrasporte implements Serializable {
     @OneToMany(mappedBy = "idMedioTrasporte", fetch = FetchType.LAZY)
     private List<HistoricoIngreso> historicoIngresoList;
 
-    public MedioTrasporte() {
+    public MedioTransporte() {
     }
 
-    public MedioTrasporte(Integer idMedioTrasporte) {
+    public MedioTransporte(Integer idMedioTrasporte) {
         this.idMedioTrasporte = idMedioTrasporte;
     }
 
@@ -95,10 +95,10 @@ public class MedioTrasporte implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof MedioTrasporte)) {
+        if (!(object instanceof MedioTransporte)) {
             return false;
         }
-        MedioTrasporte other = (MedioTrasporte) object;
+        MedioTransporte other = (MedioTransporte) object;
         if ((this.idMedioTrasporte == null && other.idMedioTrasporte != null) || (this.idMedioTrasporte != null && !this.idMedioTrasporte.equals(other.idMedioTrasporte))) {
             return false;
         }

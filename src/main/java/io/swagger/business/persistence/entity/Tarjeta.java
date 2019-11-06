@@ -33,7 +33,7 @@ public class Tarjeta implements Serializable {
     @Column(name = "nro_tarjeta", length = 12)
     private String nroTarjeta;
     @Column(name = "saldo_disponible")
-    private Integer saldoDisponible;
+    private Double saldoDisponible;
     @Column(name = "activo", length = 2)
     private String activo;
     @OneToMany(mappedBy = "idTarjeta", fetch = FetchType.LAZY)
@@ -67,11 +67,11 @@ public class Tarjeta implements Serializable {
         this.nroTarjeta = nroTarjeta;
     }
 
-    public Integer getSaldoDisponible() {
+    public Double getSaldoDisponible() {
         return saldoDisponible;
     }
 
-    public void setSaldoDisponible(Integer saldoDisponible) {
+    public void setSaldoDisponible(Double saldoDisponible) {
         this.saldoDisponible = saldoDisponible;
     }
 

@@ -31,7 +31,7 @@ public class HistoricoIngreso implements Serializable {
     private Date fechaIngreso;
     @JoinColumn(name = "id_medio_trasporte", referencedColumnName = "id_medio_trasporte")
     @ManyToOne(fetch = FetchType.LAZY)
-    private MedioTrasporte idMedioTrasporte;
+    private MedioTransporte idMedioTrasporte;
     @JoinColumn(name = "id_tarjeta", referencedColumnName = "id_tarjeta")
     @ManyToOne(fetch = FetchType.LAZY)
     private Tarjeta idTarjeta;
@@ -59,11 +59,11 @@ public class HistoricoIngreso implements Serializable {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public MedioTrasporte getIdMedioTrasporte() {
+    public MedioTransporte getIdMedioTrasporte() {
         return idMedioTrasporte;
     }
 
-    public void setIdMedioTrasporte(MedioTrasporte idMedioTrasporte) {
+    public void setIdMedioTrasporte(MedioTransporte idMedioTrasporte) {
         this.idMedioTrasporte = idMedioTrasporte;
     }
 
