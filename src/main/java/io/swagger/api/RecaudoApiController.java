@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -82,6 +83,7 @@ public class RecaudoApiController implements RecaudoApi {
         return new ResponseEntity<ModelApiResponse>(HttpStatus.NOT_IMPLEMENTED);
     }
 
+    @CrossOrigin
     public ResponseEntity<Card> getCardInformation(@ApiParam(value = "Get Card Info by Card Number",required=true) @PathVariable("cardNumber") String cardNumber) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
@@ -106,14 +108,14 @@ public class RecaudoApiController implements RecaudoApi {
             	
             	if (card != null) {
             		card.setNumber(cardNumber);
-                	card.setStatus(0);
+                	card.setStatus(card.getStatus() == 0 ? 1 : 0);
                 	
                 	card = rFacade.updateCard(card);
                 	ModelApiResponse response = new ModelApiResponse();
                 	
                 	if (card != null) {
                     	response.setCode(0);
-                    	response.setMessage("Tarjeta bloqueada correctamente");
+                    	response.setMessage(card.getStatus() == 0 ? "Tarjeta bloqueada correctamente" : "Tarjeta desbloqueada correctamente");
                     	response.setType("Confirmación");
                     	
                     	return new ResponseEntity<ModelApiResponse>(response, HttpStatus.OK);
@@ -195,7 +197,7 @@ public class RecaudoApiController implements RecaudoApi {
             	if (card != null) {
             		if (card.getStatus() == 0) {
             			response.setCode(-1);
-            			response.setMessage("La tarjeta se encuentra bloqueada, no se puede recargar");
+            			response.setMessage("La tarjeta se encuentra bloqueada, no se puede realizar cobro");
             			response.setType("Tarjeta Bloqueada");
             			return new ResponseEntity<ModelApiResponse>(response, HttpStatus.LOCKED);
             		} else {

@@ -57,8 +57,7 @@ public class CardService implements ICardService {
 		Tarjeta tarjeta = cRepository.findByNroTarjeta(card.getNumber());
 		
 		if (tarjeta != null) {
-			tarjeta.setSaldoDisponible((tarjeta.getSaldoDisponible() + 
-					card.getBalance().doubleValue()));
+			tarjeta.setSaldoDisponible((card.getBalance().doubleValue()));
 			tarjeta.setActivo(card.getStatus() == 1 ? "SI" : "NO");
 			
 			Usuario usuario = tarjeta.getIdUsuario();
