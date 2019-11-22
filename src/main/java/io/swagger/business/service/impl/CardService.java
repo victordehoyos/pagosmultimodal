@@ -7,8 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import io.swagger.business.persistence.entity.Tarjeta;
+import io.swagger.business.persistence.entity.TipoIdentificacion;
 import io.swagger.business.persistence.entity.Usuario;
 import io.swagger.business.persistence.repository.TarjetaRepository;
+import io.swagger.business.persistence.repository.TipoIdentificacionRepository;
+import io.swagger.business.persistence.repository.UsuarioRepository;
 import io.swagger.business.service.ICardService;
 import io.swagger.model.Card;
 import io.swagger.model.User;
@@ -18,6 +21,10 @@ public class CardService implements ICardService {
 
 	@Autowired
 	private TarjetaRepository cRepository;
+	@Autowired
+	private UsuarioRepository uRepository;
+	@Autowired
+	private TipoIdentificacionRepository tRepository;
 
 	@Override
 	public Card createWithoutOwner() {
@@ -61,11 +68,20 @@ public class CardService implements ICardService {
 			tarjeta.setActivo(card.getStatus() == 1 ? "SI" : "NO");
 			
 			Usuario usuario = tarjeta.getIdUsuario();
-			if (usuario != null && card.getOwner() != null) {
+			if (usuario == null) {
+				usuario = new Usuario();
+			}
+			if (card.getOwner() != null) {
+				TipoIdentificacion t = tRepository.findOne(1);
+				usuario.setIdTipoIdentificacion(t);
+				usuario.setNroIdentificacion(tarjeta.getNroTarjeta().substring(1, tarjeta.getNroTarjeta().length()));
 				usuario.setNombre(card.getOwner().getFirstName());
 				usuario.setApellido(card.getOwner().getLastName());
 				usuario.setCorreoPrincipal(card.getOwner().getEmail());
 				usuario.setTelefonoPrincipal(card.getOwner().getPhone());
+				
+				usuario = uRepository.save(usuario);
+				
 				tarjeta.setIdUsuario(usuario);
 			}
 			cRepository.save(tarjeta);

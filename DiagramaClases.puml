@@ -1,0 +1,420 @@
+@startuml
+annotation com.fasterxml.jackson.annotation.JsonProperty
+annotation io.swagger.annotations.ApiModelProperty
+annotation io.swagger.api.Api
+annotation io.swagger.api.ApiOperation
+annotation io.swagger.api.ApiParam
+annotation io.swagger.api.ApiResponse
+annotation io.swagger.api.ApiResponses
+annotation io.swagger.api.Authorization
+annotation io.swagger.api.NotNull
+annotation java.lang.Override
+annotation javax.annotation.Generated
+annotation javax.persistence.Basic
+annotation javax.persistence.Column
+annotation javax.persistence.Entity
+annotation javax.persistence.GeneratedValue
+annotation javax.persistence.Id
+annotation javax.persistence.JoinColumn
+annotation javax.persistence.ManyToOne
+annotation javax.persistence.OneToMany
+annotation javax.persistence.Table
+annotation javax.persistence.Temporal
+annotation javax.validation.Valid
+annotation javax.xml.bind.annotation.XmlRootElement
+annotation javax.xml.bind.annotation.XmlTransient
+annotation org.springframework.beans.factory.annotation.Autowired
+annotation org.springframework.boot.autoconfigure.SpringBootApplication
+annotation org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+annotation org.springframework.context.annotation.Bean
+annotation org.springframework.context.annotation.ComponentScan
+annotation org.springframework.context.annotation.Configuration
+annotation org.springframework.stereotype.Controller
+annotation org.springframework.stereotype.Service
+annotation org.springframework.validation.annotation.Validated
+annotation org.springframework.web.bind.annotation.CrossOrigin
+annotation org.springframework.web.bind.annotation.PathVariable
+annotation org.springframework.web.bind.annotation.RequestBody
+annotation org.springframework.web.bind.annotation.RequestMapping
+annotation org.springframework.web.bind.annotation.RequestParam
+annotation springfox.documentation.swagger2.annotations.EnableSwagger2
+class com.fasterxml.jackson.annotation.JsonCreator
+class com.fasterxml.jackson.databind.ObjectMapper
+class com.fasterxml.jackson.databind.util.ISO8601DateFormat
+class com.fasterxml.jackson.databind.util.ISO8601Utils
+class com.fasterxml.jackson.datatype.threetenbp.ThreeTenModule
+class io.swagger.RFC3339DateFormat
+class io.swagger.Swagger2SpringBoot
+class io.swagger.annotations.ApiModel
+class io.swagger.api.ApiException
+class io.swagger.api.ApiOriginFilter
+class io.swagger.api.ApiResponseMessage
+class io.swagger.api.NotFoundException
+class io.swagger.api.RecaudoApiController
+class io.swagger.business.facade.impl.RecaudoFacade
+class io.swagger.business.persistence.entity.HistoricoIngreso
+class io.swagger.business.persistence.entity.MedioRecarga
+class io.swagger.business.persistence.entity.MedioTransporte
+class io.swagger.business.persistence.entity.Parametrica
+class io.swagger.business.persistence.entity.Password
+class io.swagger.business.persistence.entity.Recarga
+class io.swagger.business.persistence.entity.Tarjeta
+class io.swagger.business.persistence.entity.TipoIdentificacion
+class io.swagger.business.persistence.entity.Usuario
+class io.swagger.business.service.impl.CardService
+class io.swagger.configuration.HomeController
+class io.swagger.configuration.JacksonConfiguration
+class io.swagger.configuration.SwaggerDocumentationConfig
+class io.swagger.model.Card
+class io.swagger.model.CreateCardResponse
+class io.swagger.model.ModelApiResponse
+class io.swagger.model.User
+class java.io.IOException
+class java.lang.Exception
+class java.math.BigDecimal
+class java.text.FieldPosition
+class java.util.Date
+class java.util.List
+class java.util.Objects
+class javax.persistence.CascadeType
+class javax.persistence.FetchType
+class javax.persistence.GenerationType
+class javax.persistence.TemporalType
+class javax.servlet.http.HttpServletRequest
+class javax.servlet.http.HttpServletResponse
+class org.apache.commons.lang3.StringUtils
+class org.slf4j.Logger
+class org.slf4j.LoggerFactory
+class org.springframework.boot.ExitCodeGenerator
+class org.springframework.boot.SpringApplication
+class org.springframework.http.HttpStatus
+class org.springframework.http.ResponseEntity
+class org.springframework.web.bind.annotation.RequestHeader
+class org.springframework.web.bind.annotation.RequestMethod
+class org.springframework.web.bind.annotation.RequestPart
+class org.springframework.web.multipart.MultipartFile
+class org.threeten.bp.Instant
+class org.threeten.bp.OffsetDateTime
+class org.threeten.bp.ZonedDateTime
+class springfox.documentation.builders.ApiInfoBuilder
+class springfox.documentation.builders.RequestHandlerSelectors
+class springfox.documentation.service.ApiInfo
+class springfox.documentation.service.Contact
+class springfox.documentation.spi.DocumentationType
+class springfox.documentation.spring.web.plugins.Docket
+interface io.swagger.api.RecaudoApi
+interface io.swagger.business.facade.IRecaudoFacade
+interface io.swagger.business.persistence.repository.HistoricoIngresoRepository
+interface io.swagger.business.persistence.repository.MedioRecargaRepository
+interface io.swagger.business.persistence.repository.MedioTransporteRepository
+interface io.swagger.business.persistence.repository.ParametricaRepository
+interface io.swagger.business.persistence.repository.PasswordRepository
+interface io.swagger.business.persistence.repository.RecargaRepository
+interface io.swagger.business.persistence.repository.TarjetaRepository
+interface io.swagger.business.persistence.repository.TipoIdentificacionRepository
+interface io.swagger.business.persistence.repository.UsuarioRepository
+interface io.swagger.business.service.ICardService
+interface java.io.Serializable
+interface javax.servlet.Filter
+interface org.springframework.boot.CommandLineRunner
+interface org.springframework.data.jpa.repository.JpaRepository
+io.swagger.RFC3339DateFormat ..> java.lang.Override
+io.swagger.RFC3339DateFormat --|> com.fasterxml.jackson.databind.util.ISO8601DateFormat
+io.swagger.RFC3339DateFormat ..> com.fasterxml.jackson.databind.util.ISO8601Utils
+io.swagger.RFC3339DateFormat ..> java.text.FieldPosition
+io.swagger.RFC3339DateFormat ..> java.util.Date
+io.swagger.Swagger2SpringBoot ..> java.lang.Override
+io.swagger.Swagger2SpringBoot ..> org.springframework.boot.autoconfigure.SpringBootApplication
+io.swagger.Swagger2SpringBoot ..> org.springframework.context.annotation.ComponentScan
+io.swagger.Swagger2SpringBoot ..> springfox.documentation.swagger2.annotations.EnableSwagger2
+io.swagger.Swagger2SpringBoot ..> org.springframework.boot.ExitCodeGenerator
+io.swagger.Swagger2SpringBoot ..> org.springframework.boot.SpringApplication
+io.swagger.Swagger2SpringBoot --|> org.springframework.boot.CommandLineRunner
+io.swagger.api.ApiException ..> javax.annotation.Generated
+io.swagger.api.ApiException --|> java.lang.Exception
+io.swagger.api.ApiOriginFilter ..> java.lang.Override
+io.swagger.api.ApiOriginFilter ..> javax.annotation.Generated
+io.swagger.api.ApiOriginFilter ..> java.io.IOException
+io.swagger.api.ApiOriginFilter ..> javax.servlet.http.HttpServletResponse
+io.swagger.api.ApiOriginFilter --|> javax.servlet.Filter
+io.swagger.api.ApiResponseMessage ..> javax.annotation.Generated
+io.swagger.api.ApiResponseMessage ..> javax.xml.bind.annotation.XmlRootElement
+io.swagger.api.ApiResponseMessage ..> javax.xml.bind.annotation.XmlTransient
+io.swagger.api.NotFoundException ..> javax.annotation.Generated
+io.swagger.api.NotFoundException --|> io.swagger.api.ApiException
+io.swagger.api.RecaudoApiController ..> io.swagger.api.ApiParam
+io.swagger.api.RecaudoApiController ..> io.swagger.api.NotNull
+io.swagger.api.RecaudoApiController ..> javax.annotation.Generated
+io.swagger.api.RecaudoApiController ..> javax.validation.Valid
+io.swagger.api.RecaudoApiController ..> org.springframework.beans.factory.annotation.Autowired
+io.swagger.api.RecaudoApiController ..> org.springframework.stereotype.Controller
+io.swagger.api.RecaudoApiController ..> org.springframework.web.bind.annotation.CrossOrigin
+io.swagger.api.RecaudoApiController ..> org.springframework.web.bind.annotation.PathVariable
+io.swagger.api.RecaudoApiController ..> org.springframework.web.bind.annotation.RequestBody
+io.swagger.api.RecaudoApiController ..> org.springframework.web.bind.annotation.RequestParam
+io.swagger.api.RecaudoApiController ..> com.fasterxml.jackson.databind.ObjectMapper
+io.swagger.api.RecaudoApiController ..> io.swagger.model.Card
+io.swagger.api.RecaudoApiController ..> io.swagger.model.CreateCardResponse
+io.swagger.api.RecaudoApiController ..> io.swagger.model.ModelApiResponse
+io.swagger.api.RecaudoApiController ..> io.swagger.model.User
+io.swagger.api.RecaudoApiController ..> java.io.IOException
+io.swagger.api.RecaudoApiController ..> java.math.BigDecimal
+io.swagger.api.RecaudoApiController ..> java.util.List
+io.swagger.api.RecaudoApiController ..> javax.servlet.http.HttpServletRequest
+io.swagger.api.RecaudoApiController ..> org.slf4j.Logger
+io.swagger.api.RecaudoApiController ..> org.slf4j.LoggerFactory
+io.swagger.api.RecaudoApiController ..> org.springframework.http.HttpStatus
+io.swagger.api.RecaudoApiController ..> org.springframework.http.ResponseEntity
+io.swagger.api.RecaudoApiController ..> org.springframework.web.bind.annotation.RequestHeader
+io.swagger.api.RecaudoApiController ..> org.springframework.web.bind.annotation.RequestPart
+io.swagger.api.RecaudoApiController ..> org.springframework.web.multipart.MultipartFile
+io.swagger.api.RecaudoApiController --|> io.swagger.api.RecaudoApi
+io.swagger.api.RecaudoApiController ..> io.swagger.business.facade.IRecaudoFacade
+io.swagger.business.facade.impl.RecaudoFacade ..> java.lang.Override
+io.swagger.business.facade.impl.RecaudoFacade ..> org.springframework.beans.factory.annotation.Autowired
+io.swagger.business.facade.impl.RecaudoFacade ..> org.springframework.stereotype.Service
+io.swagger.business.facade.impl.RecaudoFacade ..> io.swagger.model.Card
+io.swagger.business.facade.impl.RecaudoFacade --|> io.swagger.business.facade.IRecaudoFacade
+io.swagger.business.facade.impl.RecaudoFacade ..> io.swagger.business.service.ICardService
+io.swagger.business.persistence.entity.HistoricoIngreso ..> java.lang.Override
+io.swagger.business.persistence.entity.HistoricoIngreso ..> javax.persistence.Basic
+io.swagger.business.persistence.entity.HistoricoIngreso ..> javax.persistence.Column
+io.swagger.business.persistence.entity.HistoricoIngreso ..> javax.persistence.Entity
+io.swagger.business.persistence.entity.HistoricoIngreso ..> javax.persistence.GeneratedValue
+io.swagger.business.persistence.entity.HistoricoIngreso ..> javax.persistence.Id
+io.swagger.business.persistence.entity.HistoricoIngreso ..> javax.persistence.JoinColumn
+io.swagger.business.persistence.entity.HistoricoIngreso ..> javax.persistence.ManyToOne
+io.swagger.business.persistence.entity.HistoricoIngreso ..> javax.persistence.Table
+io.swagger.business.persistence.entity.HistoricoIngreso ..> javax.persistence.Temporal
+io.swagger.business.persistence.entity.HistoricoIngreso ..> java.util.Date
+io.swagger.business.persistence.entity.HistoricoIngreso ..> javax.persistence.FetchType
+io.swagger.business.persistence.entity.HistoricoIngreso ..> javax.persistence.GenerationType
+io.swagger.business.persistence.entity.HistoricoIngreso ..> javax.persistence.TemporalType
+io.swagger.business.persistence.entity.HistoricoIngreso --|> java.io.Serializable
+io.swagger.business.persistence.entity.MedioRecarga ..> java.lang.Override
+io.swagger.business.persistence.entity.MedioRecarga ..> javax.persistence.Basic
+io.swagger.business.persistence.entity.MedioRecarga ..> javax.persistence.Column
+io.swagger.business.persistence.entity.MedioRecarga ..> javax.persistence.Entity
+io.swagger.business.persistence.entity.MedioRecarga ..> javax.persistence.GeneratedValue
+io.swagger.business.persistence.entity.MedioRecarga ..> javax.persistence.Id
+io.swagger.business.persistence.entity.MedioRecarga ..> javax.persistence.OneToMany
+io.swagger.business.persistence.entity.MedioRecarga ..> javax.persistence.Table
+io.swagger.business.persistence.entity.MedioRecarga ..> javax.xml.bind.annotation.XmlTransient
+io.swagger.business.persistence.entity.MedioRecarga ..> java.util.List
+io.swagger.business.persistence.entity.MedioRecarga ..> javax.persistence.FetchType
+io.swagger.business.persistence.entity.MedioRecarga ..> javax.persistence.GenerationType
+io.swagger.business.persistence.entity.MedioRecarga --|> java.io.Serializable
+io.swagger.business.persistence.entity.MedioTransporte ..> java.lang.Override
+io.swagger.business.persistence.entity.MedioTransporte ..> javax.persistence.Basic
+io.swagger.business.persistence.entity.MedioTransporte ..> javax.persistence.Column
+io.swagger.business.persistence.entity.MedioTransporte ..> javax.persistence.Entity
+io.swagger.business.persistence.entity.MedioTransporte ..> javax.persistence.GeneratedValue
+io.swagger.business.persistence.entity.MedioTransporte ..> javax.persistence.Id
+io.swagger.business.persistence.entity.MedioTransporte ..> javax.persistence.OneToMany
+io.swagger.business.persistence.entity.MedioTransporte ..> javax.persistence.Table
+io.swagger.business.persistence.entity.MedioTransporte ..> javax.xml.bind.annotation.XmlTransient
+io.swagger.business.persistence.entity.MedioTransporte ..> java.util.List
+io.swagger.business.persistence.entity.MedioTransporte ..> javax.persistence.FetchType
+io.swagger.business.persistence.entity.MedioTransporte ..> javax.persistence.GenerationType
+io.swagger.business.persistence.entity.MedioTransporte --|> java.io.Serializable
+io.swagger.business.persistence.entity.Parametrica ..> java.lang.Override
+io.swagger.business.persistence.entity.Parametrica ..> javax.persistence.Basic
+io.swagger.business.persistence.entity.Parametrica ..> javax.persistence.Column
+io.swagger.business.persistence.entity.Parametrica ..> javax.persistence.Entity
+io.swagger.business.persistence.entity.Parametrica ..> javax.persistence.GeneratedValue
+io.swagger.business.persistence.entity.Parametrica ..> javax.persistence.Id
+io.swagger.business.persistence.entity.Parametrica ..> javax.persistence.Table
+io.swagger.business.persistence.entity.Parametrica ..> javax.persistence.Temporal
+io.swagger.business.persistence.entity.Parametrica ..> java.util.Date
+io.swagger.business.persistence.entity.Parametrica ..> javax.persistence.GenerationType
+io.swagger.business.persistence.entity.Parametrica ..> javax.persistence.TemporalType
+io.swagger.business.persistence.entity.Parametrica --|> java.io.Serializable
+io.swagger.business.persistence.entity.Password ..> java.lang.Override
+io.swagger.business.persistence.entity.Password ..> javax.persistence.Basic
+io.swagger.business.persistence.entity.Password ..> javax.persistence.Column
+io.swagger.business.persistence.entity.Password ..> javax.persistence.Entity
+io.swagger.business.persistence.entity.Password ..> javax.persistence.GeneratedValue
+io.swagger.business.persistence.entity.Password ..> javax.persistence.Id
+io.swagger.business.persistence.entity.Password ..> javax.persistence.JoinColumn
+io.swagger.business.persistence.entity.Password ..> javax.persistence.ManyToOne
+io.swagger.business.persistence.entity.Password ..> javax.persistence.Table
+io.swagger.business.persistence.entity.Password ..> javax.persistence.Temporal
+io.swagger.business.persistence.entity.Password ..> java.util.Date
+io.swagger.business.persistence.entity.Password ..> javax.persistence.FetchType
+io.swagger.business.persistence.entity.Password ..> javax.persistence.GenerationType
+io.swagger.business.persistence.entity.Password ..> javax.persistence.TemporalType
+io.swagger.business.persistence.entity.Password --|> java.io.Serializable
+io.swagger.business.persistence.entity.Recarga ..> java.lang.Override
+io.swagger.business.persistence.entity.Recarga ..> javax.persistence.Basic
+io.swagger.business.persistence.entity.Recarga ..> javax.persistence.Column
+io.swagger.business.persistence.entity.Recarga ..> javax.persistence.Entity
+io.swagger.business.persistence.entity.Recarga ..> javax.persistence.GeneratedValue
+io.swagger.business.persistence.entity.Recarga ..> javax.persistence.Id
+io.swagger.business.persistence.entity.Recarga ..> javax.persistence.JoinColumn
+io.swagger.business.persistence.entity.Recarga ..> javax.persistence.ManyToOne
+io.swagger.business.persistence.entity.Recarga ..> javax.persistence.Table
+io.swagger.business.persistence.entity.Recarga ..> javax.persistence.Temporal
+io.swagger.business.persistence.entity.Recarga ..> java.util.Date
+io.swagger.business.persistence.entity.Recarga ..> javax.persistence.FetchType
+io.swagger.business.persistence.entity.Recarga ..> javax.persistence.GenerationType
+io.swagger.business.persistence.entity.Recarga ..> javax.persistence.TemporalType
+io.swagger.business.persistence.entity.Recarga --|> java.io.Serializable
+io.swagger.business.persistence.entity.Tarjeta ..> java.lang.Override
+io.swagger.business.persistence.entity.Tarjeta ..> javax.persistence.Basic
+io.swagger.business.persistence.entity.Tarjeta ..> javax.persistence.Column
+io.swagger.business.persistence.entity.Tarjeta ..> javax.persistence.Entity
+io.swagger.business.persistence.entity.Tarjeta ..> javax.persistence.GeneratedValue
+io.swagger.business.persistence.entity.Tarjeta ..> javax.persistence.Id
+io.swagger.business.persistence.entity.Tarjeta ..> javax.persistence.JoinColumn
+io.swagger.business.persistence.entity.Tarjeta ..> javax.persistence.ManyToOne
+io.swagger.business.persistence.entity.Tarjeta ..> javax.persistence.OneToMany
+io.swagger.business.persistence.entity.Tarjeta ..> javax.persistence.Table
+io.swagger.business.persistence.entity.Tarjeta ..> javax.xml.bind.annotation.XmlTransient
+io.swagger.business.persistence.entity.Tarjeta ..> java.util.List
+io.swagger.business.persistence.entity.Tarjeta ..> javax.persistence.FetchType
+io.swagger.business.persistence.entity.Tarjeta ..> javax.persistence.GenerationType
+io.swagger.business.persistence.entity.Tarjeta --|> java.io.Serializable
+io.swagger.business.persistence.entity.TipoIdentificacion ..> java.lang.Override
+io.swagger.business.persistence.entity.TipoIdentificacion ..> javax.persistence.Basic
+io.swagger.business.persistence.entity.TipoIdentificacion ..> javax.persistence.Column
+io.swagger.business.persistence.entity.TipoIdentificacion ..> javax.persistence.Entity
+io.swagger.business.persistence.entity.TipoIdentificacion ..> javax.persistence.GeneratedValue
+io.swagger.business.persistence.entity.TipoIdentificacion ..> javax.persistence.Id
+io.swagger.business.persistence.entity.TipoIdentificacion ..> javax.persistence.OneToMany
+io.swagger.business.persistence.entity.TipoIdentificacion ..> javax.persistence.Table
+io.swagger.business.persistence.entity.TipoIdentificacion ..> javax.xml.bind.annotation.XmlTransient
+io.swagger.business.persistence.entity.TipoIdentificacion ..> java.util.List
+io.swagger.business.persistence.entity.TipoIdentificacion ..> javax.persistence.CascadeType
+io.swagger.business.persistence.entity.TipoIdentificacion ..> javax.persistence.FetchType
+io.swagger.business.persistence.entity.TipoIdentificacion ..> javax.persistence.GenerationType
+io.swagger.business.persistence.entity.TipoIdentificacion --|> java.io.Serializable
+io.swagger.business.persistence.entity.Usuario ..> java.lang.Override
+io.swagger.business.persistence.entity.Usuario ..> javax.persistence.Basic
+io.swagger.business.persistence.entity.Usuario ..> javax.persistence.Column
+io.swagger.business.persistence.entity.Usuario ..> javax.persistence.Entity
+io.swagger.business.persistence.entity.Usuario ..> javax.persistence.GeneratedValue
+io.swagger.business.persistence.entity.Usuario ..> javax.persistence.Id
+io.swagger.business.persistence.entity.Usuario ..> javax.persistence.JoinColumn
+io.swagger.business.persistence.entity.Usuario ..> javax.persistence.ManyToOne
+io.swagger.business.persistence.entity.Usuario ..> javax.persistence.OneToMany
+io.swagger.business.persistence.entity.Usuario ..> javax.persistence.Table
+io.swagger.business.persistence.entity.Usuario ..> javax.xml.bind.annotation.XmlTransient
+io.swagger.business.persistence.entity.Usuario ..> java.util.List
+io.swagger.business.persistence.entity.Usuario ..> javax.persistence.FetchType
+io.swagger.business.persistence.entity.Usuario ..> javax.persistence.GenerationType
+io.swagger.business.persistence.entity.Usuario --|> java.io.Serializable
+io.swagger.business.service.impl.CardService ..> java.lang.Override
+io.swagger.business.service.impl.CardService ..> org.springframework.beans.factory.annotation.Autowired
+io.swagger.business.service.impl.CardService ..> org.springframework.stereotype.Service
+io.swagger.business.service.impl.CardService ..> io.swagger.business.persistence.entity.Tarjeta
+io.swagger.business.service.impl.CardService ..> io.swagger.business.persistence.entity.Usuario
+io.swagger.business.service.impl.CardService ..> io.swagger.model.Card
+io.swagger.business.service.impl.CardService ..> io.swagger.model.User
+io.swagger.business.service.impl.CardService ..> java.math.BigDecimal
+io.swagger.business.service.impl.CardService ..> org.apache.commons.lang3.StringUtils
+io.swagger.business.service.impl.CardService ..> io.swagger.business.persistence.repository.TarjetaRepository
+io.swagger.business.service.impl.CardService --|> io.swagger.business.service.ICardService
+io.swagger.configuration.HomeController ..> org.springframework.stereotype.Controller
+io.swagger.configuration.HomeController ..> org.springframework.web.bind.annotation.RequestMapping
+io.swagger.configuration.JacksonConfiguration ..> org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+io.swagger.configuration.JacksonConfiguration ..> org.springframework.context.annotation.Bean
+io.swagger.configuration.JacksonConfiguration ..> org.springframework.context.annotation.Configuration
+io.swagger.configuration.JacksonConfiguration ..> com.fasterxml.jackson.datatype.threetenbp.ThreeTenModule
+io.swagger.configuration.JacksonConfiguration ..> org.threeten.bp.Instant
+io.swagger.configuration.JacksonConfiguration ..> org.threeten.bp.OffsetDateTime
+io.swagger.configuration.JacksonConfiguration ..> org.threeten.bp.ZonedDateTime
+io.swagger.configuration.SwaggerDocumentationConfig ..> javax.annotation.Generated
+io.swagger.configuration.SwaggerDocumentationConfig ..> org.springframework.context.annotation.Bean
+io.swagger.configuration.SwaggerDocumentationConfig ..> org.springframework.context.annotation.Configuration
+io.swagger.configuration.SwaggerDocumentationConfig ..> springfox.documentation.builders.ApiInfoBuilder
+io.swagger.configuration.SwaggerDocumentationConfig ..> springfox.documentation.builders.RequestHandlerSelectors
+io.swagger.configuration.SwaggerDocumentationConfig ..> springfox.documentation.service.ApiInfo
+io.swagger.configuration.SwaggerDocumentationConfig ..> springfox.documentation.service.Contact
+io.swagger.configuration.SwaggerDocumentationConfig ..> springfox.documentation.spi.DocumentationType
+io.swagger.configuration.SwaggerDocumentationConfig ..> springfox.documentation.spring.web.plugins.Docket
+io.swagger.model.Card ..> com.fasterxml.jackson.annotation.JsonProperty
+io.swagger.model.Card ..> io.swagger.annotations.ApiModelProperty
+io.swagger.model.Card ..> java.lang.Override
+io.swagger.model.Card ..> javax.annotation.Generated
+io.swagger.model.Card ..> javax.validation.Valid
+io.swagger.model.Card ..> org.springframework.validation.annotation.Validated
+io.swagger.model.Card ..> com.fasterxml.jackson.annotation.JsonCreator
+io.swagger.model.Card ..> io.swagger.annotations.ApiModel
+io.swagger.model.Card ..> io.swagger.model.User
+io.swagger.model.Card ..> java.math.BigDecimal
+io.swagger.model.Card ..> java.util.Objects
+io.swagger.model.CreateCardResponse ..> com.fasterxml.jackson.annotation.JsonProperty
+io.swagger.model.CreateCardResponse ..> io.swagger.annotations.ApiModelProperty
+io.swagger.model.CreateCardResponse ..> java.lang.Override
+io.swagger.model.CreateCardResponse ..> javax.annotation.Generated
+io.swagger.model.CreateCardResponse ..> javax.validation.Valid
+io.swagger.model.CreateCardResponse ..> org.springframework.validation.annotation.Validated
+io.swagger.model.CreateCardResponse ..> com.fasterxml.jackson.annotation.JsonCreator
+io.swagger.model.CreateCardResponse ..> io.swagger.annotations.ApiModel
+io.swagger.model.CreateCardResponse ..> io.swagger.model.Card
+io.swagger.model.CreateCardResponse ..> java.util.Objects
+io.swagger.model.ModelApiResponse ..> com.fasterxml.jackson.annotation.JsonProperty
+io.swagger.model.ModelApiResponse ..> io.swagger.annotations.ApiModelProperty
+io.swagger.model.ModelApiResponse ..> java.lang.Override
+io.swagger.model.ModelApiResponse ..> javax.annotation.Generated
+io.swagger.model.ModelApiResponse ..> javax.validation.Valid
+io.swagger.model.ModelApiResponse ..> org.springframework.validation.annotation.Validated
+io.swagger.model.ModelApiResponse ..> com.fasterxml.jackson.annotation.JsonCreator
+io.swagger.model.ModelApiResponse ..> io.swagger.annotations.ApiModel
+io.swagger.model.ModelApiResponse ..> java.util.Objects
+io.swagger.model.User ..> com.fasterxml.jackson.annotation.JsonProperty
+io.swagger.model.User ..> io.swagger.annotations.ApiModelProperty
+io.swagger.model.User ..> java.lang.Override
+io.swagger.model.User ..> javax.annotation.Generated
+io.swagger.model.User ..> javax.validation.Valid
+io.swagger.model.User ..> org.springframework.validation.annotation.Validated
+io.swagger.model.User ..> com.fasterxml.jackson.annotation.JsonCreator
+io.swagger.model.User ..> io.swagger.annotations.ApiModel
+io.swagger.model.User ..> java.util.Objects
+io.swagger.api.RecaudoApi ..> io.swagger.api.Api
+io.swagger.api.RecaudoApi ..> io.swagger.api.ApiOperation
+io.swagger.api.RecaudoApi ..> io.swagger.api.ApiParam
+io.swagger.api.RecaudoApi ..> io.swagger.api.ApiResponse
+io.swagger.api.RecaudoApi ..> io.swagger.api.ApiResponses
+io.swagger.api.RecaudoApi ..> io.swagger.api.Authorization
+io.swagger.api.RecaudoApi ..> io.swagger.api.NotNull
+io.swagger.api.RecaudoApi ..> javax.annotation.Generated
+io.swagger.api.RecaudoApi ..> javax.validation.Valid
+io.swagger.api.RecaudoApi ..> org.springframework.validation.annotation.Validated
+io.swagger.api.RecaudoApi ..> org.springframework.web.bind.annotation.PathVariable
+io.swagger.api.RecaudoApi ..> org.springframework.web.bind.annotation.RequestBody
+io.swagger.api.RecaudoApi ..> org.springframework.web.bind.annotation.RequestMapping
+io.swagger.api.RecaudoApi ..> org.springframework.web.bind.annotation.RequestParam
+io.swagger.api.RecaudoApi ..> io.swagger.model.Card
+io.swagger.api.RecaudoApi ..> io.swagger.model.CreateCardResponse
+io.swagger.api.RecaudoApi ..> io.swagger.model.ModelApiResponse
+io.swagger.api.RecaudoApi ..> io.swagger.model.User
+io.swagger.api.RecaudoApi ..> java.math.BigDecimal
+io.swagger.api.RecaudoApi ..> java.util.List
+io.swagger.api.RecaudoApi ..> org.springframework.http.ResponseEntity
+io.swagger.api.RecaudoApi ..> org.springframework.web.bind.annotation.RequestHeader
+io.swagger.api.RecaudoApi ..> org.springframework.web.bind.annotation.RequestMethod
+io.swagger.api.RecaudoApi ..> org.springframework.web.bind.annotation.RequestPart
+io.swagger.api.RecaudoApi ..> org.springframework.web.multipart.MultipartFile
+io.swagger.business.facade.IRecaudoFacade ..> io.swagger.model.Card
+io.swagger.business.persistence.repository.HistoricoIngresoRepository ..> io.swagger.business.persistence.entity.HistoricoIngreso
+io.swagger.business.persistence.repository.HistoricoIngresoRepository --|> org.springframework.data.jpa.repository.JpaRepository
+io.swagger.business.persistence.repository.MedioRecargaRepository ..> io.swagger.business.persistence.entity.MedioRecarga
+io.swagger.business.persistence.repository.MedioRecargaRepository --|> org.springframework.data.jpa.repository.JpaRepository
+io.swagger.business.persistence.repository.MedioTransporteRepository ..> io.swagger.business.persistence.entity.MedioTransporte
+io.swagger.business.persistence.repository.MedioTransporteRepository --|> org.springframework.data.jpa.repository.JpaRepository
+io.swagger.business.persistence.repository.ParametricaRepository ..> io.swagger.business.persistence.entity.Parametrica
+io.swagger.business.persistence.repository.ParametricaRepository --|> org.springframework.data.jpa.repository.JpaRepository
+io.swagger.business.persistence.repository.PasswordRepository ..> io.swagger.business.persistence.entity.Password
+io.swagger.business.persistence.repository.PasswordRepository --|> org.springframework.data.jpa.repository.JpaRepository
+io.swagger.business.persistence.repository.RecargaRepository ..> io.swagger.business.persistence.entity.Recarga
+io.swagger.business.persistence.repository.RecargaRepository --|> org.springframework.data.jpa.repository.JpaRepository
+io.swagger.business.persistence.repository.TarjetaRepository ..> io.swagger.business.persistence.entity.Tarjeta
+io.swagger.business.persistence.repository.TarjetaRepository --|> org.springframework.data.jpa.repository.JpaRepository
+io.swagger.business.persistence.repository.TipoIdentificacionRepository ..> io.swagger.business.persistence.entity.TipoIdentificacion
+io.swagger.business.persistence.repository.TipoIdentificacionRepository --|> org.springframework.data.jpa.repository.JpaRepository
+io.swagger.business.persistence.repository.UsuarioRepository ..> io.swagger.business.persistence.entity.Usuario
+io.swagger.business.persistence.repository.UsuarioRepository --|> org.springframework.data.jpa.repository.JpaRepository
+io.swagger.business.service.ICardService ..> io.swagger.business.persistence.entity.Tarjeta
+io.swagger.business.service.ICardService ..> io.swagger.model.Card
+@enduml

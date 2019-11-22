@@ -73,6 +73,29 @@ public class RecaudoApiController implements RecaudoApi {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
+            	Card card = rFacade.getCardInfo(cardNumber);
+            	
+            	if (card != null) {
+            		card.setOwner(body);
+                	
+                	card = rFacade.updateCard(card);
+                	ModelApiResponse response = new ModelApiResponse();
+                	
+                	if (card != null) {
+                    	response.setCode(0);
+                    	response.setMessage("Tarjeta personalizada correctamente");
+                    	response.setType("Confirmación");
+                    	
+                    	return new ResponseEntity<ModelApiResponse>(response, HttpStatus.OK);
+                	} else {
+                		response.setCode(-1);
+                		response.setMessage("Error al personalizar la tarjeta");
+                		response.setType("ERROR");
+                		
+                		return new ResponseEntity<ModelApiResponse>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+                	}
+            	}
+            	
                 return new ResponseEntity<ModelApiResponse>(objectMapper.readValue("{  \"code\" : 0,  \"type\" : \"type\",  \"message\" : \"message\"}", ModelApiResponse.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
